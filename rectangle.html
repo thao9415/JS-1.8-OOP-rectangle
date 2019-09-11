@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="200" style="border: 1px solid #000000" ></canvas>
+<script>
+    let Rectangle=function (length,width) {
+        this.length=length;
+        this.width=width;
+        this.getLength=function () {
+            return this.length;
+        };
+        this.getWidth=function () {
+            return this.width;
+        };
+        this.area=function () {
+            return length*width;
+        };
+        this.perimeter=function () {
+            return 2*(length+width);
+        }
+    };
+    //ve hinh chu nhat
+    function createRectangle( ) {
+        let c=document.getElementById("myCanvas");
+        let ctx=c.getContext("2d");
+        let length=Math.floor(Math.random()*100);
+        let width=Math.floor(Math.random()*100);
+        let rectangle=new Rectangle(length,width);
+        ctx.strokeRect(50,50,rectangle.length,rectangle.width)
+        let area=rectangle.area();
+        let perimeter=rectangle.perimeter();
+        document.write("<br>"+"Chu vi HCN = "+area+" Diện tích HCN = " +perimeter);
+    }
+    createRectangle()
+
+
+</script>
+
+</body>
+</html>
